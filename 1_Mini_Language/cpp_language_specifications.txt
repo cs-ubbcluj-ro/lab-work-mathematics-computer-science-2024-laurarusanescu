@@ -1,5 +1,5 @@
 
-Language Specification for C++:
+Language Specification for Restricted C++:
 
 1. Language Definition:
 
@@ -15,24 +15,26 @@ a. Special Symbols representing:
 - Separators: ( ) { } [ ] , ; space
 
 b. Reserved Words (Keywords):
-int, char, float, double, if, else, while, for, return, void, cout, cin, include, using, namespace
+int, char, struct, if, else, while, for, return, void, cout, cin, include, using, namespace
 
 c. Identifiers:
 An identifier is a sequence of letters, digits, and underscores such that the first character must be a letter or an underscore. The rule is:
 identifier ::= letter | "_" {letter | digit | "_"}
 letter ::= "A" | "B" | . . . | "Z" | "a" | "b" | . . . | "z"
 digit ::= "0" | "1" | . . . | "9"
+- Maximum length: 20 characters
 
 d. Constants:
 1. Integer - Rule:
 int_const ::= digit{digit}
+- Must be non-negative and up to 5 digits long.
 
 2. Character - Rule:
 char_const ::= ''' printable_char '''
-printable_char ::= letter | digit | symbol | whitespace
+printable_char ::= letter | digit | symbol
 
 3. String - Rule:
-string_const ::= """ char_seq """
+string_const ::= '"' char_seq '"'
 char_seq ::= printable_char{char_seq}
 
 2. Syntax:
@@ -42,8 +44,7 @@ Predefined tokens are represented between quotation marks "".
 a) Syntactical Rules:
 program ::= include_directive "int" "main" "(" ")" block
 
-include_directive ::= "#include" "<" library_name ">"
-library_name ::= "iostream" | "string" | "vector" | ...
+include_directive ::= "#include" "<iostream>"
 
 block ::= "{" stmt_list "}"
 stmt_list ::= stmt | stmt stmt_list
@@ -51,10 +52,14 @@ stmt_list ::= stmt | stmt stmt_list
 b) Declarations:
 Variable Declaration:
 declaration ::= type IDENTIFIER [ "=" expression ] ";"
-type ::= "int" | "float" | "char" | "double" | "void" | array_decl
+type ::= "int" | "char"
 
 Array Declaration:
 array_decl ::= type IDENTIFIER "[" int_const "]"
+
+Struct Declaration:
+struct_decl ::= "struct" IDENTIFIER "{" var_decl_list "}" ";"
+var_decl_list ::= declaration { declaration }
 
 c) Statements:
 stmt ::= if_stmt | while_stmt | for_stmt | assign_stmt | return_stmt | io_stmt
