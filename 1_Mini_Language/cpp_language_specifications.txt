@@ -19,7 +19,7 @@ int, char
 
 c. Identifiers:
 An identifier is a sequence of letters, digits, and underscores such that the first character must be a letter or an underscore. The rule is:
-identifier ::= letter | "_" {letter | digit | "_"}
+identifier ::= letter | "_" {letter | digit | "_" | "."}
 letter ::= "A" | "B" | . . . | "Z" | "a" | "b" | . . . | "z"
 digit ::= "0" | "1" | . . . | "9"
 - Maximum length: 20 characters
