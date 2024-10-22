@@ -15,7 +15,7 @@ a. Special Symbols representing:
 - Separators: ( ) { } [ ] , ; space
 
 b. Reserved Words (Keywords):
-int, char, struct, if, else, while, for, return, void, cout, cin, include, using, namespace
+int, char
 
 c. Identifiers:
 An identifier is a sequence of letters, digits, and underscores such that the first character must be a letter or an underscore. The rule is:
@@ -72,7 +72,7 @@ expression ::= expression "+" term | expression "-" term | term
 term ::= term "*" factor | term "/" factor | factor
 factor ::= IDENTIFIER | int_const | "(" expression ")" | func_call
 
-e) Control Structures:
+e) Conditional Structures:
 If Statement:
 if_stmt ::= "if" "(" condition ")" stmt [ "else" stmt ]
 
