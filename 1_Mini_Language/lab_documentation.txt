@@ -23,16 +23,12 @@ Language Specification:
    - Statements include assignment, control flow (if, while, for), and I/O operations.
    - Conditions use relational operators (e.g., ==, !=, <, >) to compare expressions.
 
-Lab Exercise:
--------------
-We implemented a simple C++ program to perform basic arithmetic operations (+, -, *, /) on two integers provided by the user.
-The program checks for division by zero and invalid operations.
 
-Program Code:
+Example Code:
 -------------
 This C++ program is a simple calculator that performs basic arithmetic operations: addition,
 subtraction, multiplication, and division. It prompts the user to input two integers and an operator (+, -, *, or /). 
-The program then evaluates the operation and displays the result. It also includes error handling for invalid operations and prevents division by zero, displaying an appropriate error message in such cases.
+The program then evaluates the operation and displays the result. 
 
 Conclusion:
 -----------
